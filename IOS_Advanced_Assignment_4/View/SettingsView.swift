@@ -34,11 +34,15 @@ struct SettingsView: View {
                             .foregroundColor(.white)
                     }
                     .padding()
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(10)
-                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color("DarkGray"), Color.black]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                    .cornerRadius(15)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                    )
                 }
                 .frame(width: 160)
+                .shadow(color: Color.black.opacity(0.1), radius: 10, x: 0, y: 10)
                 
                 Button(action: {
                     UserDefaults.standard.set("Light", forKey: "SelectedTheme")
@@ -51,11 +55,15 @@ struct SettingsView: View {
                             .foregroundColor(.black)
                     }
                     .padding()
-                    .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(10)
-                    .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 10)
+                    .background(LinearGradient(gradient: Gradient(colors: [Color("LightYellow"), Color.white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                     .cornerRadius(15)
+                     .overlay(
+                        RoundedRectangle(cornerRadius: 15)
+                            .stroke(Color.gray.opacity(0.2), lineWidth: 1)
+                        )
                 }
                 .frame(width: 160)
+                .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 10)
             } // This bracket is for the horizontal stack containing the app theme buttons
         }
     }
