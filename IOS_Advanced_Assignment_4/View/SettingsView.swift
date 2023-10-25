@@ -29,10 +29,14 @@ struct SettingsView: View {
                 }) {
                     HStack {
                         Image(systemName: "moon.fill")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                         Text("Dark Theme")
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                     }
+                    .padding()
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.gray]), startPoint: .top, endPoint: .bottom))
+                    .cornerRadius(10)
+                    .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
                 }
                 .frame(width: 160)
                 
@@ -46,6 +50,10 @@ struct SettingsView: View {
                         Text("Light Theme")
                             .foregroundColor(.black)
                     }
+                    .padding()
+                    .background(LinearGradient(gradient: Gradient(colors: [Color.yellow, Color.white]), startPoint: .top, endPoint: .bottom))
+                    .cornerRadius(10)
+                    .shadow(color: Color.gray.opacity(0.2), radius: 10, x: 0, y: 10)
                 }
                 .frame(width: 160)
             } // This bracket is for the horizontal stack containing the app theme buttons
