@@ -12,7 +12,23 @@ struct ContentView: View {
         
         TabView() {
             
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.circle")
+                    Text("Home")
+                }
             
+            CurrencyExchangeView()
+                .tabItem {
+                    Image(systemName: "dollarsign.circle")
+                    Text("Currency Exchange")
+                }
+            
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "lock.circle")
+                    Text("Preferences")
+                }
         }
     }
 }
