@@ -16,6 +16,7 @@
 		A152CE9C2AE8D92300870F2C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9B2AE8D92300870F2C /* SettingsView.swift */; };
 		A152CE9E2AE8D93D00870F2C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9D2AE8D93D00870F2C /* ModelData.swift */; };
 		A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */; };
+		A152CEA32AE8E23C00870F2C /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CEA22AE8E23C00870F2C /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A152CE9B2AE8D92300870F2C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A152CE9D2AE8D93D00870F2C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModifier.swift; sourceTree = "<group>"; };
+		A152CEA22AE8E23C00870F2C /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		A152CE832AE8C57800870F2C /* IOS_Advanced_Assignment_4 */ = {
 			isa = PBXGroup;
 			children = (
+				A152CEA12AE8E22B00870F2C /* CoreData */,
 				A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */,
 				A152CE862AE8C57800870F2C /* ContentView.swift */,
 				A152CE962AE8D30E00870F2C /* View Model */,
@@ -104,6 +107,14 @@
 				A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		A152CEA12AE8E22B00870F2C /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				A152CEA22AE8E23C00870F2C /* PersistenceController.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +194,7 @@
 				A152CE9A2AE8D91400870F2C /* CurrencyExchangeView.swift in Sources */,
 				A152CE852AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift in Sources */,
 				A152CE9E2AE8D93D00870F2C /* ModelData.swift in Sources */,
+				A152CEA32AE8E23C00870F2C /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
