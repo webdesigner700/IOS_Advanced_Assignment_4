@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @EnvironmentObject var modelData: ModelData
     
     var body: some View {
         
@@ -32,6 +33,7 @@ struct ContentView: View {
                     Text("Preferences")
                 }
         }
+        .modifier(ThemeModifier(selectedTheme: modelData.selectedTheme))
     }
 }
 
