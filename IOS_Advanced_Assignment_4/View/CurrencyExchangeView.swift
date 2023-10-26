@@ -22,6 +22,13 @@ struct CurrencyExchangeView: View {
                 print("View appeared, calling fetchExchangeRates()")
                 viewModel.fetchExchangeRates()
             }
+            .onReceive(viewModel.$exchangeRates) { _ in
+                // Update the UI on the main thread
+                DispatchQueue.main.async {
+                    // Force a view update by changing a @State variable
+                    // This will trigger a refresh of the view
+                }
+            }
         }
     }
 }

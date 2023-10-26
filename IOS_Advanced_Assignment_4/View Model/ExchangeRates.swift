@@ -40,8 +40,8 @@ class ExchangeRates: ObservableObject {
                     print("Data fetching failed with error: \(error)")
                 }
             }, receiveValue: { data in
-                print("Received data: \(data)")
-                // Print the raw data response for further analysis
+                print("Received data: \(data)") // Print the raw data response for further analysis
+                self.exchangeRates = data // Assign received data to exchangeRates
             })
             .store(in: &cancellables) // Subscribe and store the subscription
     }
