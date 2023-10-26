@@ -12,7 +12,7 @@ struct MoneyExchangeView: View {
     let exchangeRate: Double
 
     var body: some View {
-        Text("MoneyExchangeView for \(currencyCode) with exchange rate \(exchangeRate)")
+        Text("\(currencyCode) with exchange rate \(exchangeRate)")
     }
 }
 
