@@ -8,8 +8,20 @@
 import SwiftUI
 
 struct CurrencyExchangeView: View {
+    @ObservedObject var viewModel = ExchangeRatesResponse()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            List {
+                ForEach(viewModel.exchangeRates?.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
+                    Text("\(currencyCode): \(exchangeRate, specifier: "%.2f")")
+                }
+            }
+            .navigationBarTitle("Exchange Rates", displayMode: .inline)
+            .onAppear {
+                viewModel.fetchExchangeRates()
+            }
+        }
     }
 }
 
