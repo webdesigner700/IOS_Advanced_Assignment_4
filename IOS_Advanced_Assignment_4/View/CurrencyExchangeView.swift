@@ -19,14 +19,15 @@ struct CurrencyExchangeView: View {
             }
             .navigationBarTitle("Exchange Rates", displayMode: .inline)
             .onAppear {
+                print("View appeared, calling fetchExchangeRates()")
                 viewModel.fetchExchangeRates()
             }
         }
     }
 }
 
-struct CurrencyExchangeView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrencyExchangeView()
-    }
-}
+//struct CurrencyExchangeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CurrencyExchangeView()
+//    }
+//}
