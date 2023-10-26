@@ -14,9 +14,9 @@ class ExchangeRates: ObservableObject {
 
     init() {
         // Initialize exchangeRates with a default value or an empty ExchangeRatesResponse
-        self.exchangeRates = ExchangeRatesResponse(success: false, timestamp: 0, base: "", date: "", rates: [:])
+        self.exchangeRates = ExchangeRatesResponse(amount: 0.0, base: "", date: "", rates: [:])
     }
-
+    
     func fetchExchangeRates() {
         print("func fetchExchangeRates() called!")
         
@@ -30,7 +30,7 @@ class ExchangeRates: ObservableObject {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: ExchangeRatesResponse.self, decoder: JSONDecoder())
-            .replaceError(with: ExchangeRatesResponse(success: false, timestamp: 0, base: "", date: "", rates: [:]))
+            .replaceError(with: ExchangeRatesResponse(amount: 0.0, base: "", date: "", rates: [:]))
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { completion in
                 switch completion {
