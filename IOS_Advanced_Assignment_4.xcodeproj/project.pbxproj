@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		64647DF92AEA8760001B42F8 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64647DF82AEA8760001B42F8 /* ExchangeRates.swift */; };
+		64647DFB2AEA9156001B42F8 /* ExchangeRatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64647DFA2AEA9156001B42F8 /* ExchangeRatesResponse.swift */; };
 		A152CE852AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */; };
 		A152CE872AE8C57800870F2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE862AE8C57800870F2C /* ContentView.swift */; };
 		A152CE892AE8C57D00870F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A152CE882AE8C57D00870F2C /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		64647DF82AEA8760001B42F8 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
+		64647DFA2AEA9156001B42F8 /* ExchangeRatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeRatesResponse.swift; path = "IOS_Advanced_Assignment_4/View Model/ExchangeRatesResponse.swift"; sourceTree = SOURCE_ROOT; };
 		A152CE812AE8C57800870F2C /* IOS_Advanced_Assignment_4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_Advanced_Assignment_4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_Advanced_Assignment_4App.swift; sourceTree = "<group>"; };
 		A152CE862AE8C57800870F2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		A152CE952AE8D30500870F2C /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				64647DFA2AEA9156001B42F8 /* ExchangeRatesResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				A152CE9C2AE8D92300870F2C /* SettingsView.swift in Sources */,
 				A152CE982AE8D90300870F2C /* HomeView.swift in Sources */,
 				A152CE872AE8C57800870F2C /* ContentView.swift in Sources */,
+				64647DFB2AEA9156001B42F8 /* ExchangeRatesResponse.swift in Sources */,
 				A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */,
 				64647DF92AEA8760001B42F8 /* ExchangeRates.swift in Sources */,
 				A152CE9A2AE8D91400870F2C /* CurrencyExchangeView.swift in Sources */,
