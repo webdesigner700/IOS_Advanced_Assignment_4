@@ -10,6 +10,7 @@ import Combine
 
 class ExchangeRates: ObservableObject {
     @Published var exchangeRates: ExchangeRatesResponse
+    private var cancellables: Set<AnyCancellable> = [] // Declare cancellables
 
     init() {
         // Initialize exchangeRates with a default value or an empty ExchangeRatesResponse
@@ -18,7 +19,7 @@ class ExchangeRates: ObservableObject {
 
     func fetchExchangeRates() {
         print("func fetchExchangeRates() called!")
-                
+
         guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=b1344cef01a490fd0b9562873c917841&base=AUD") else {
             print("Invalid URL")
             return
@@ -40,5 +41,6 @@ class ExchangeRates: ObservableObject {
                 self?.exchangeRates = data
                 print("Received data: \(data)")
             })
+            .store(in: &cancellables) // Subscribe and store the subscription
     }
 }
