@@ -15,12 +15,24 @@ struct CurrencyExchangeView: View {
             List {
                 ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
                     HStack {
+                        Spacer().frame(width: 15)
+                        
                         Text("\(currencyCode)")
-                        Spacer()
+                        
+                        Spacer().frame(width: 20)
+                        
                         VStack {
                             Text("Current rate:")
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .foregroundColor(.gray)
+                                .italic()
+                                .padding(.top, 30)
                             Text("\(exchangeRate, specifier: "%.2f")")
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.bottom, 30)
                         }
+                        
+                        Spacer().frame(width: 15)
                     }
                 }
             }
