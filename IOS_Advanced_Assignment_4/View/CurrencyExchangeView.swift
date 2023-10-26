@@ -33,6 +33,18 @@ struct CurrencyExchangeView: View {
                         }
                         
                         Spacer().frame(width: 15)
+                        
+                        Divider()
+                            .frame(height: 50)
+                            .background(Color.gray)
+                        
+                        Spacer().frame(width: 20)
+                        
+                        Image(systemName: "chevron.right")
+                            .padding(.trailing, 10)
+                            .foregroundColor(.black)
+                        
+                        Spacer().frame(width: 1)
                     }
                 }
             }
