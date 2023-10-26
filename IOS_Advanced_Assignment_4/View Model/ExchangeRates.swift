@@ -18,8 +18,11 @@ class ExchangeRates: ObservableObject {
 
     func fetchExchangeRates() {
         print("func fetchExchangeRates() called!")
-        
-        guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=b1344cef01a490fd0b9562873c917841") else { return }
+                
+        guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=b1344cef01a490fd0b9562873c917841&base=AUD") else {
+            print("Invalid URL")
+            return
+        }
 
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
