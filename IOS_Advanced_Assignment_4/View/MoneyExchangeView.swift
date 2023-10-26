@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MoneyExchangeView: View {
+    let currencyCode: String
+    let exchangeRate: Double
+
     var body: some View {
-        Text("MoneyExchangeView")
+        Text("MoneyExchangeView for \(currencyCode) with exchange rate \(exchangeRate)")
     }
 }
 
