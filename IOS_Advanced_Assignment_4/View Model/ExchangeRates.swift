@@ -19,11 +19,13 @@ class ExchangeRates: ObservableObject {
 
     func fetchExchangeRates() {
         print("func fetchExchangeRates() called!")
-
-        guard let url = URL(string: "http://data.fixer.io/api/latest?access_key=b1344cef01a490fd0b9562873c917841&base=AUD") else {
+        
+        guard let url = URL(string: "https://api.frankfurter.app/latest?from=AUD") else {
             print("Invalid URL")
             return
         }
+        
+        print("Fetching data from URL: \(url)")
 
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
@@ -37,9 +39,9 @@ class ExchangeRates: ObservableObject {
                 case .failure(let error):
                     print("Data fetching failed with error: \(error)")
                 }
-            }, receiveValue: { [weak self] data in
-                self?.exchangeRates = data
+            }, receiveValue: { data in
                 print("Received data: \(data)")
+                // Print the raw data response for further analysis
             })
             .store(in: &cancellables) // Subscribe and store the subscription
     }
