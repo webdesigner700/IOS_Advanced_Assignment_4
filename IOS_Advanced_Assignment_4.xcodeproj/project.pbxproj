@@ -24,6 +24,7 @@
 /* Begin PBXFileReference section */
 		64647DF82AEA8760001B42F8 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 		64647DFA2AEA9156001B42F8 /* ExchangeRatesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeRatesResponse.swift; path = "IOS_Advanced_Assignment_4/View Model/ExchangeRatesResponse.swift"; sourceTree = SOURCE_ROOT; };
+		64647DFC2AEA97CA001B42F8 /* IOS-Advanced-Assignment-4-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "IOS-Advanced-Assignment-4-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A152CE812AE8C57800870F2C /* IOS_Advanced_Assignment_4.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IOS_Advanced_Assignment_4.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOS_Advanced_Assignment_4App.swift; sourceTree = "<group>"; };
 		A152CE862AE8C57800870F2C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -67,6 +68,7 @@
 		A152CE832AE8C57800870F2C /* IOS_Advanced_Assignment_4 */ = {
 			isa = PBXGroup;
 			children = (
+				64647DFC2AEA97CA001B42F8 /* IOS-Advanced-Assignment-4-Info.plist */,
 				A152CEA12AE8E22B00870F2C /* CoreData */,
 				A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */,
 				A152CE862AE8C57800870F2C /* ContentView.swift */,
@@ -333,6 +335,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IOS_Advanced_Assignment_4/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IOS-Advanced-Assignment-4-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -361,6 +364,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"IOS_Advanced_Assignment_4/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "IOS-Advanced-Assignment-4-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
