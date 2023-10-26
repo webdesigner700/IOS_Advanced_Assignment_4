@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-class ExchangeRatesViewModel: ObservableObject {
-    @Published var exchangeRates: ExchangeRatesResponse 
+class ExchangeRates: ObservableObject {
+    @Published var exchangeRates: ExchangeRatesResponse
 
     init() {
         // Initialize exchangeRates with a default value or an empty ExchangeRatesResponse

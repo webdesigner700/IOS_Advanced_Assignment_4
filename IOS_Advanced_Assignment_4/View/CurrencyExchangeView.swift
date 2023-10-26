@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct CurrencyExchangeView: View {
-    @ObservedObject var viewModel = ExchangeRatesResponse()
+    @ObservedObject var viewModel = ExchangeRates()
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(viewModel.exchangeRates?.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
+                ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
                     Text("\(currencyCode): \(exchangeRate, specifier: "%.2f")")
                 }
             }
