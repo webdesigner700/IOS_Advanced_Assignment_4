@@ -14,7 +14,14 @@ struct CurrencyExchangeView: View {
         NavigationView {
             List {
                 ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
-                    Text("\(currencyCode): \(exchangeRate, specifier: "%.2f")")
+                    HStack {
+                        Text("\(currencyCode)")
+                        Spacer()
+                        VStack {
+                            Text("Current rate:")
+                            Text("\(exchangeRate, specifier: "%.2f")")
+                        }
+                    }
                 }
             }
             .navigationBarTitle("Exchange Rates", displayMode: .inline)
