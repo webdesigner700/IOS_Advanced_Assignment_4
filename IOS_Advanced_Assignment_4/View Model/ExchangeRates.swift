@@ -24,6 +24,16 @@ class ExchangeRates: ObservableObject {
             .decode(type: ExchangeRatesResponse.self, decoder: JSONDecoder())
             .replaceError(with: ExchangeRatesResponse(success: false, timestamp: 0, base: "", date: "", rates: [:]))
             .receive(on: DispatchQueue.main)
-            .assign(to: &$exchangeRates)
+            .sink(receiveCompletion: { completion in
+                switch completion {
+                case .finished:
+                    print("Data fetching completed successfully")
+                case .failure(let error):
+                    print("Data fetching failed with error: \(error)")
+                }
+            }, receiveValue: { [weak self] data in
+                self?.exchangeRates = data
+                print("Received data: \(data)")
+            })
     }
 }
