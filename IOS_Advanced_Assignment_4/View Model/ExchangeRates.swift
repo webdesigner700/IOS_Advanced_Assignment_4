@@ -17,7 +17,8 @@ class ExchangeRatesViewModel: ObservableObject {
         URLSession.shared.dataTaskPublisher(for: url)
             .map(\.data)
             .decode(type: ExchangeRatesResponse.self, decoder: JSONDecoder())
-            .replaceError(with: nil)
+//            .replaceError(with: nil)
+            .replaceError(with: ExchangeRatesResponse(success: false, timestamp: 0, base: "", date: "", rates: [:]))
             .receive(on: DispatchQueue.main)
             .assign(to: &$exchangeRates)
     }
