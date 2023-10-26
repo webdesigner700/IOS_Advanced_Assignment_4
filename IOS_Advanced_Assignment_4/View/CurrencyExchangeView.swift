@@ -14,37 +14,39 @@ struct CurrencyExchangeView: View {
         NavigationView {
             List {
                 ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
-                    HStack {
-                        Spacer().frame(width: 15)
-                        
-                        Text("\(currencyCode)")
-                        
-                        Spacer().frame(width: 20)
-                        
-                        VStack {
-                            Text("Current rate:")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .foregroundColor(.gray)
-                                .italic()
-                                .padding(.top, 30)
-                            Text("\(exchangeRate, specifier: "%.2f")")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding(.bottom, 30)
+                    NavigationLink(destination: MoneyExchangeView(currencyCode: currencyCode, exchangeRate: exchangeRate)) {
+                        HStack {
+                            Spacer().frame(width: 15)
+                            
+                            Text("\(currencyCode)")
+                            
+                            Spacer().frame(width: 20)
+                            
+                            VStack {
+                                Text("Current rate:")
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .foregroundColor(.gray)
+                                    .italic()
+                                    .padding(.top, 30)
+                                Text("\(exchangeRate, specifier: "%.2f")")
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .padding(.bottom, 30)
+                            }
+                            
+                            Spacer().frame(width: 15)
+                            
+                            Divider()
+                                .frame(height: 50)
+                                .background(Color.gray)
+                            
+                            Spacer().frame(width: 20)
+                            
+                            Image(systemName: "chevron.right")
+                                .padding(.trailing, 10)
+                                .foregroundColor(.black)
+                            
+                            Spacer().frame(width: 1)
                         }
-                        
-                        Spacer().frame(width: 15)
-                        
-                        Divider()
-                            .frame(height: 50)
-                            .background(Color.gray)
-                        
-                        Spacer().frame(width: 20)
-                        
-                        Image(systemName: "chevron.right")
-                            .padding(.trailing, 10)
-                            .foregroundColor(.black)
-                        
-                        Spacer().frame(width: 1)
                     }
                 }
             }
