@@ -56,20 +56,14 @@ func countryCodeForCurrencyCode(_ currencyCode: String) -> String? {
 struct CurrencyExchangeView: View {
     @ObservedObject var viewModel = ExchangeRates()
     @State private var searchText = ""
-
+    
     var body: some View {
         NavigationView {
             VStack {
-                                
-//                Spacer().frame(height: 15)
-//
-//                SearchBarView(searchText: $searchText)
-//
-//                Spacer().frame(height: 15)
                 
                 SearchBarView(searchText: $searchText)
                     .padding(.horizontal)
-                    .padding(.top, 25) // Adjust the top padding as needed
+                    .padding(.top, 25)
 
                 Spacer()
 
@@ -110,7 +104,7 @@ struct CurrencyExchangeView: View {
                                     .background(Color.gray)
                                 
                                 Spacer().frame(width: 10)
-                                
+  
                                 Image(systemName: "chevron.right")
                                     .padding(.trailing, 10)
                                     .foregroundColor(.black)
@@ -121,7 +115,6 @@ struct CurrencyExchangeView: View {
                                         )
                                         .opacity(0)
                                     )
-                                
                             }
                         }
                     }

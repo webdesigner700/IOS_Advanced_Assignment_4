@@ -23,25 +23,68 @@ struct MoneyExchangeView: View {
     }
 
     var body: some View {
-        VStack {
-            Text("\(currencyCode) with exchange rate \(exchangeRate)")
+        VStack(alignment: .leading) {
+            Text("Convert to \(currencyCode)\nwith exchange rate\n\(exchangeRate)")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.top, 10)
+                .padding(.bottom, 30)
 
-            TextField("Enter Amount", text: $inputAmount)
-                .keyboardType(.decimalPad)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
+            
+//            TextField("Enter Amount", text: $inputAmount)
+//                .keyboardType(.decimalPad)
+//                .textFieldStyle(RoundedBorderTextFieldStyle())
+//                .padding(.bottom, 25)
+//                .padding(.trailing, 50)
+            
+            
+            //Make TextField appear to full width
+            HStack {
+                TextField("Enter Amount", text: $inputAmount)
+                    .keyboardType(.decimalPad)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding(.bottom, 25)
+                
+                Spacer()
+            }
+                
 
-            Button("Convert") {
+//            Button("Convert") {
+//                print("Button Pressed")
+//                print("Input Amount (Before Binding): \(inputAmount)")
+//                currencyConverterViewModel.convertAmount(inputAmount: inputAmount) // Pass inputAmount as a parameter
+//                print("Input Amount (After Binding): \(inputAmount)")
+//                print("Converted Amount: \(currencyConverterViewModel.convertedAmount)")
+//            }
+            
+            
+            Button(action: {
                 print("Button Pressed")
                 print("Input Amount (Before Binding): \(inputAmount)")
                 currencyConverterViewModel.convertAmount(inputAmount: inputAmount) // Pass inputAmount as a parameter
                 print("Input Amount (After Binding): \(inputAmount)")
                 print("Converted Amount: \(currencyConverterViewModel.convertedAmount)")
+            }) {
+                Text("Convert")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding(10)
+                    .background(Color.black)
+                    .cornerRadius(5)
+                    .padding(.bottom, 10)
             }
             
+            
 //            Text("Converted \(currencyCode) Amount: \(convertedAmount, specifier: "%.2f")")
-            Text("Converted \(currencyCode) Amount: \(currencyConverterViewModel.convertedAmount, specifier: "%.2f")")
+            
+            Text("Converted \(currencyCode) Amount:")
+            
+            Text("\(currencyConverterViewModel.convertedAmount, specifier: "%.2f")")
+                .font(.system(size: 24))
+                .bold()
+                .padding(.bottom, 90)
         }
+        .padding(30)
     }
 }
 
