@@ -15,17 +15,25 @@ class CurrencyConverter: ObservableObject {
     let exchangeRate: Double
 
     init(currencyCode: String, exchangeRate: Double) {
+        print("CurrencyConverter init called with currencyCode: \(currencyCode) and exchangeRate: \(exchangeRate)")
         self.currencyCode = currencyCode
         self.exchangeRate = exchangeRate
     }
 
-    func convertAmount() {
+    func convertAmount(inputAmount: String) {
         print("func convertAmount() called!")
-        if let amount = Double(inputAmount) {
-            convertedAmount = amount * exchangeRate
-            print("Amount: \(amount)")
+
+        // Remove leading and trailing whitespace
+        let trimmedInput = inputAmount.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        if let amount = Double(trimmedInput) {
+            print("Input Amount: \(trimmedInput)")
+            print("Successfully converted to Double: \(amount)")
             print("Exchange Rate: \(exchangeRate)")
+            convertedAmount = amount * exchangeRate
             print("Converted Amount: \(convertedAmount)")
+        } else {
+            print("Failed to convert input to Double. Invalid input detected.")
         }
     }
 }

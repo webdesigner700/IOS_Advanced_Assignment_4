@@ -16,6 +16,7 @@ struct MoneyExchangeView: View {
     @State private var convertedAmount: Double = 0.0
     
     init(currencyCode: String, exchangeRate: Double) {
+        print("MoneyExchangeView init called with currencyCode: \(currencyCode) and exchangeRate: \(exchangeRate)")
         self.currencyCode = currencyCode
         self.exchangeRate = exchangeRate
         self.currencyConverterViewModel = CurrencyConverter(currencyCode: currencyCode, exchangeRate: exchangeRate)
@@ -32,12 +33,14 @@ struct MoneyExchangeView: View {
 
             Button("Convert") {
                 print("Button Pressed")
-                print("Input Amount: \(inputAmount)")
-                currencyConverterViewModel.convertAmount()
+                print("Input Amount (Before Binding): \(inputAmount)")
+                currencyConverterViewModel.convertAmount(inputAmount: inputAmount) // Pass inputAmount as a parameter
+                print("Input Amount (After Binding): \(inputAmount)")
                 print("Converted Amount: \(currencyConverterViewModel.convertedAmount)")
             }
-
-            Text("Converted \(currencyCode) Amount: \(convertedAmount, specifier: "%.2f")")
+            
+//            Text("Converted \(currencyCode) Amount: \(convertedAmount, specifier: "%.2f")")
+            Text("Converted \(currencyCode) Amount: \(currencyConverterViewModel.convertedAmount, specifier: "%.2f")")
         }
     }
 }
