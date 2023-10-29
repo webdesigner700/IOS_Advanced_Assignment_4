@@ -13,14 +13,21 @@ struct SearchBarView: View {
     var body: some View {
         HStack {
             TextField("Search", text: $searchText)
-                .padding(.horizontal)
+                .padding(.vertical, 6)
+                .padding(.horizontal, 6)
+                .background(
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 1)
+                )
+                .frame(maxWidth: .infinity)
+                .padding(.leading, 8)
+            
             Button(action: {
                 searchText = ""
             }) {
                 Image(systemName: "xmark.circle.fill")
                     .opacity(searchText.isEmpty ? 0 : 1)
             }
-            .padding(.horizontal)
         }
     }
 }

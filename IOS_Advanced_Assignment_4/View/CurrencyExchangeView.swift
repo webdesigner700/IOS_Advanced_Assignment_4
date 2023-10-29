@@ -60,9 +60,19 @@ struct CurrencyExchangeView: View {
     var body: some View {
         NavigationView {
             VStack {
+                                
+//                Spacer().frame(height: 15)
+//
+//                SearchBarView(searchText: $searchText)
+//
+//                Spacer().frame(height: 15)
                 
                 SearchBarView(searchText: $searchText)
-                
+                    .padding(.horizontal)
+                    .padding(.top, 25) // Adjust the top padding as needed
+
+                Spacer()
+
                 List {
                     ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
                         if searchText.isEmpty || currencyCode.localizedCaseInsensitiveContains(searchText) {
