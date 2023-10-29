@@ -16,7 +16,7 @@ struct MoneyExchangeView: View {
     @State private var convertedAmount: Double = 0.0
     
     init(currencyCode: String, exchangeRate: Double) {
-        print("MoneyExchangeView init called with currencyCode: \(currencyCode) and exchangeRate: \(exchangeRate)")
+//        print("MoneyExchangeView init called with currencyCode: \(currencyCode) and exchangeRate: \(exchangeRate)")
         self.currencyCode = currencyCode
         self.exchangeRate = exchangeRate
         self.currencyConverterViewModel = CurrencyConverter(currencyCode: currencyCode, exchangeRate: exchangeRate)

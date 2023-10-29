@@ -15,7 +15,7 @@ class CurrencyConverter: ObservableObject {
     let exchangeRate: Double
 
     init(currencyCode: String, exchangeRate: Double) {
-        print("CurrencyConverter init called with currencyCode: \(currencyCode) and exchangeRate: \(exchangeRate)")
+//        print("CurrencyConverter init called with currencyCode: \(currencyCode) and exchangeRate: \(exchangeRate)")
         self.currencyCode = currencyCode
         self.exchangeRate = exchangeRate
     }

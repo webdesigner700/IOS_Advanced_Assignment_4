@@ -11,6 +11,7 @@
 		64647DFB2AEA9156001B42F8 /* ExchangeRatesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64647DFA2AEA9156001B42F8 /* ExchangeRatesResponse.swift */; };
 		64647DFE2AEAB34F001B42F8 /* MoneyExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64647DFD2AEAB34F001B42F8 /* MoneyExchangeView.swift */; };
 		646EA24E2AEE554400A448B8 /* CurrencyConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646EA24D2AEE554400A448B8 /* CurrencyConverter.swift */; };
+		646EA2512AEE830D00A448B8 /* FlagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 646EA2502AEE830D00A448B8 /* FlagKit */; };
 		A152CE852AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */; };
 		A152CE872AE8C57800870F2C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE862AE8C57800870F2C /* ContentView.swift */; };
 		A152CE892AE8C57D00870F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A152CE882AE8C57D00870F2C /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				646EA2512AEE830D00A448B8 /* FlagKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +149,9 @@
 			dependencies = (
 			);
 			name = IOS_Advanced_Assignment_4;
+			packageProductDependencies = (
+				646EA2502AEE830D00A448B8 /* FlagKit */,
+			);
 			productName = IOS_Advanced_Assignment_4;
 			productReference = A152CE812AE8C57800870F2C /* IOS_Advanced_Assignment_4.app */;
 			productType = "com.apple.product-type.application";
@@ -175,6 +180,9 @@
 				Base,
 			);
 			mainGroup = A152CE782AE8C57800870F2C;
+			packageReferences = (
+				646EA24F2AEE830D00A448B8 /* XCRemoteSwiftPackageReference "FlagKit" */,
+			);
 			productRefGroup = A152CE822AE8C57800870F2C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,6 +421,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		646EA24F2AEE830D00A448B8 /* XCRemoteSwiftPackageReference "FlagKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/madebybowtie/FlagKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		646EA2502AEE830D00A448B8 /* FlagKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 646EA24F2AEE830D00A448B8 /* XCRemoteSwiftPackageReference "FlagKit" */;
+			productName = FlagKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A152CE792AE8C57800870F2C /* Project object */;
 }

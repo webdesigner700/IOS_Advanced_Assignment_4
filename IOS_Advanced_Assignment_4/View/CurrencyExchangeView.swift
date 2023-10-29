@@ -6,6 +6,24 @@
 //
 
 import SwiftUI
+import FlagKit
+
+func countryCodeForCurrencyCode(_ currencyCode: String) -> String? {
+    print("func countryCodeForCurrencyCode() called!")
+    
+    let currencyCodeToCountryCodeMapping = [
+        "USD": "US", // Example mapping for USD
+        // Add more mappings here
+    ]
+    
+    if let countryCode = currencyCodeToCountryCodeMapping[currencyCode] {
+        print("Currency Code: \(currencyCode), Country Code: \(countryCode)")
+        return countryCode
+    } else {
+        print("No mapping found for Currency Code: \(currencyCode)")
+        return nil
+    }
+}
 
 struct CurrencyExchangeView: View {
     @ObservedObject var viewModel = ExchangeRates()
@@ -15,9 +33,18 @@ struct CurrencyExchangeView: View {
             List {
                 ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
                     HStack {
-                        Spacer().frame(width: 15)
-                        
-                        Text("\(currencyCode)")
+                        Spacer().frame(width: 5)
+                   
+                        if let countryCode = countryCodeForCurrencyCode(currencyCode),
+                           let flag = Flag(countryCode: countryCode) {
+                            Image(uiImage: flag.originalImage)
+                                .resizable()
+                                .frame(width: 40, height: 30)
+                        }
+ 
+                        Spacer().frame(width: 10)
+
+                        Text(currencyCode)
                         
                         Spacer().frame(width: 20)
                         
@@ -38,12 +65,8 @@ struct CurrencyExchangeView: View {
                             .frame(height: 50)
                             .background(Color.gray)
                         
-                        Spacer().frame(width: 20)
-                        
-//                            Image(systemName: "chevron.right")
-//                                .padding(.trailing, 10)
-//                                .foregroundColor(.black)
-                        
+                        Spacer().frame(width: 10)
+                                                
                         Image(systemName: "chevron.right")
                             .padding(.trailing, 10)
                             .foregroundColor(.black)
@@ -55,7 +78,6 @@ struct CurrencyExchangeView: View {
                                 .opacity(0)
                             )
                         
-                        Spacer().frame(width: 1)
                     }
                 }
             }
