@@ -79,7 +79,7 @@ struct MoneyExchangeView: View {
             
             Text("Converted \(currencyCode) Amount:")
             
-            Text("\(currencyConverterViewModel.convertedAmount, specifier: "%.2f")")
+            Text("$ \(currencyConverterViewModel.convertedAmount, specifier: "%.2f")")
                 .font(.system(size: 24))
                 .bold()
                 .padding(.bottom, 90)
