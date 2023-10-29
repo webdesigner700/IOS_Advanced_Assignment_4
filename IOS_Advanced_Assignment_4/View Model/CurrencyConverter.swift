@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-class CurrencyConverterViewModel: ObservableObject {
+class CurrencyConverter: ObservableObject {
     @Published var inputAmount: String = ""
     @Published var convertedAmount: Double = 0.0
     let currencyCode: String
@@ -20,8 +20,12 @@ class CurrencyConverterViewModel: ObservableObject {
     }
 
     func convertAmount() {
+        print("func convertAmount() called!")
         if let amount = Double(inputAmount) {
             convertedAmount = amount * exchangeRate
+            print("Amount: \(amount)")
+            print("Exchange Rate: \(exchangeRate)")
+            print("Converted Amount: \(convertedAmount)")
         }
     }
 }

@@ -31,7 +31,10 @@ struct MoneyExchangeView: View {
                 .padding()
 
             Button("Convert") {
+                print("Button Pressed")
+                print("Input Amount: \(inputAmount)")
                 currencyConverterViewModel.convertAmount()
+                print("Converted Amount: \(currencyConverterViewModel.convertedAmount)")
             }
 
             Text("Converted \(currencyCode) Amount: \(convertedAmount, specifier: "%.2f")")
