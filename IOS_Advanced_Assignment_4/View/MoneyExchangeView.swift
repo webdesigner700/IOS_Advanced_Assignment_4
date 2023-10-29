@@ -10,9 +10,26 @@ import SwiftUI
 struct MoneyExchangeView: View {
     let currencyCode: String
     let exchangeRate: Double
+    @ObservedObject var currencyConverterViewModel: CurrencyConverter
+
+    @State private var inputAmount: String = ""
+    @State private var convertedAmount: Double = 0.0
 
     var body: some View {
-        Text("\(currencyCode) with exchange rate \(exchangeRate)")
+        VStack {
+            Text("\(currencyCode) with exchange rate \(exchangeRate)")
+
+            TextField("Enter Amount", text: $inputAmount)
+                .keyboardType(.decimalPad)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
+            Button("Convert") {
+                currencyConverterViewModel.convertAmount()
+            }
+
+            Text("Converted \(currencyCode) Amount: \(convertedAmount, specifier: "%.2f")")
+        }
     }
 }
 
