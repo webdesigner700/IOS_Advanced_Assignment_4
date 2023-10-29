@@ -55,82 +55,90 @@ func countryCodeForCurrencyCode(_ currencyCode: String) -> String? {
 
 struct CurrencyExchangeView: View {
     @ObservedObject var viewModel = ExchangeRates()
+    @State private var searchText = ""
 
     var body: some View {
         NavigationView {
-            List {
-                ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
-                    HStack {
-                        Spacer().frame(width: 5)
-                        
-                        if let countryCode = countryCodeForCurrencyCode(currencyCode),
-                           let flag = Flag(countryCode: countryCode) {
-                            Image(uiImage: flag.originalImage)
-                                .resizable()
-                                .frame(width: 40, height: 30)
+            VStack {
+                
+                SearchBarView(searchText: $searchText)
+                
+                List {
+                    ForEach(viewModel.exchangeRates.rates.sorted(by: <), id: \.key) { currencyCode, exchangeRate in
+                        if searchText.isEmpty || currencyCode.localizedCaseInsensitiveContains(searchText) {
+                            HStack {
+                                Spacer().frame(width: 5)
+                                
+                                if let countryCode = countryCodeForCurrencyCode(currencyCode),
+                                   let flag = Flag(countryCode: countryCode) {
+                                    Image(uiImage: flag.originalImage)
+                                        .resizable()
+                                        .frame(width: 40, height: 30)
+                                }
+                                
+                                Spacer().frame(width: 15)
+                                
+                                Text(currencyCode)
+                                
+                                Spacer().frame(width: 20)
+                                
+                                VStack {
+                                    Text("Current rate:")
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .foregroundColor(.gray)
+                                        .italic()
+                                        .padding(.top, 30)
+                                    Text("\(exchangeRate, specifier: "%.2f")")
+                                        .frame(maxWidth: .infinity, alignment: .trailing)
+                                        .padding(.bottom, 30)
+                                }
+                                
+                                Spacer().frame(width: 15)
+                                
+                                Divider()
+                                    .frame(height: 50)
+                                    .background(Color.gray)
+                                
+                                Spacer().frame(width: 10)
+                                
+                                Image(systemName: "chevron.right")
+                                    .padding(.trailing, 10)
+                                    .foregroundColor(.black)
+                                    .overlay(
+                                        NavigationLink(
+                                            destination: MoneyExchangeView(currencyCode: currencyCode, exchangeRate: exchangeRate),
+                                            label: { EmptyView() }
+                                        )
+                                        .opacity(0)
+                                    )
+                                
+                            }
                         }
-                        
-                        Spacer().frame(width: 15)
-                        
-                        Text(currencyCode)
-                        
-                        Spacer().frame(width: 20)
-                        
-                        VStack {
-                            Text("Current rate:")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .foregroundColor(.gray)
-                                .italic()
-                                .padding(.top, 30)
-                            Text("\(exchangeRate, specifier: "%.2f")")
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding(.bottom, 30)
-                        }
-                        
-                        Spacer().frame(width: 15)
-                        
-                        Divider()
-                            .frame(height: 50)
-                            .background(Color.gray)
-                        
-                        Spacer().frame(width: 10)
-                        
-                        Image(systemName: "chevron.right")
-                            .padding(.trailing, 10)
-                            .foregroundColor(.black)
-                            .overlay(
-                                NavigationLink(
-                                    destination: MoneyExchangeView(currencyCode: currencyCode, exchangeRate: exchangeRate),
-                                    label: { EmptyView() }
-                                )
-                                .opacity(0)
-                            )
-                        
                     }
                 }
             }
-        }
-        .navigationBarTitle("", displayMode: .inline)
-        .navigationBarItems(leading:
-            HStack {
+            .navigationBarTitle("", displayMode: .inline)
+            .navigationBarItems(leading:
+                                    HStack {
                 Spacer().frame(width: 7)
-            
-            Text("Currency Exchange")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.top, 60)
-                .padding(.bottom, 60)
+                
+                Text("Currency Exchange")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.top, 60)
+                    .padding(.bottom, 60)
             }
-        )
-        .onAppear {
-            print("View appeared, calling fetchExchangeRates()")
-            viewModel.fetchExchangeRates()
-        }
-        .onReceive(viewModel.$exchangeRates) { _ in
-            // Update the UI on the main thread
-            DispatchQueue.main.async {
-                // Force a view update by changing a @State variable
-                // This will trigger a refresh of the view
+            )
+            .onAppear {
+                print("View appeared, calling fetchExchangeRates()")
+                viewModel.fetchExchangeRates()
+            }
+            .onReceive(viewModel.$exchangeRates) { _ in
+                // Update the UI on the main thread
+                DispatchQueue.main.async {
+                    // Force a view update by changing a @State variable
+                    // This will trigger a refresh of the view
+                }
             }
         }
     }
