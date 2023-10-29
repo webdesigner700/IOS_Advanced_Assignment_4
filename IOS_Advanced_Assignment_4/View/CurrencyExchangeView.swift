@@ -12,8 +12,36 @@ func countryCodeForCurrencyCode(_ currencyCode: String) -> String? {
     print("func countryCodeForCurrencyCode() called!")
     
     let currencyCodeToCountryCodeMapping = [
-        "USD": "US", // Example mapping for USD
-        // Add more mappings here
+        "USD": "US", 
+        "BGN": "BG",
+        "HUF": "HU",
+        "HKD": "HK",
+        "IDR": "ID",
+        "ILS": "IL",
+        "INR": "IN",
+        "ISK": "IS",
+        "JPY": "JP",
+        "KRW": "KR",
+        "MXN": "MX",
+        "MYR": "MY",
+        "BRL": "BR",
+        "CAD": "CA",
+        "CHF": "CH",
+        "CNY": "CN",
+        "CZK": "CZ",
+        "DKK": "DK",
+        "EUR": "EU",
+        "GBP": "GB",
+        "NOK": "NO",
+        "NZD": "NZ",
+        "PHP": "PH",
+        "PLN": "PL",
+        "RON": "RO",
+        "SEK": "SE",
+        "SGD": "SG",
+        "THB": "TH",
+        "TRY": "TR",
+        "ZAR": "ZA"
     ]
     
     if let countryCode = currencyCodeToCountryCodeMapping[currencyCode] {
@@ -42,7 +70,7 @@ struct CurrencyExchangeView: View {
                                 .frame(width: 40, height: 30)
                         }
  
-                        Spacer().frame(width: 10)
+                        Spacer().frame(width: 15)
 
                         Text(currencyCode)
                         
