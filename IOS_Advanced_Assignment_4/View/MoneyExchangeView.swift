@@ -14,6 +14,12 @@ struct MoneyExchangeView: View {
 
     @State private var inputAmount: String = ""
     @State private var convertedAmount: Double = 0.0
+    
+    init(currencyCode: String, exchangeRate: Double) {
+        self.currencyCode = currencyCode
+        self.exchangeRate = exchangeRate
+        self.currencyConverterViewModel = CurrencyConverter(currencyCode: currencyCode, exchangeRate: exchangeRate)
+    }
 
     var body: some View {
         VStack {
