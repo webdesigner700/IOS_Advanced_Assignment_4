@@ -56,7 +56,7 @@ func countryCodeForCurrencyCode(_ currencyCode: String) -> String? {
 struct CurrencyExchangeView: View {
     @ObservedObject var viewModel = ExchangeRates()
     @State private var searchText = ""
-    
+        
     var body: some View {
         NavigationView {
             VStack {
@@ -120,6 +120,7 @@ struct CurrencyExchangeView: View {
                     }
                 }
             }
+            .edgesIgnoringSafeArea(.all)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading:
                                     HStack {
