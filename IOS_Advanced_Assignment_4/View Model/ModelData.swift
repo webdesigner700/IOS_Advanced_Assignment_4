@@ -36,11 +36,13 @@ final class ModelData: ObservableObject {
         }
     }
     
-    func addExpense(expense: Expense) {
+    func addExpense(category: String) {
         
         let Expense = Expense(context: viewContext)
         
-        Expense.category = Expense.category
+        Expense.id = Int32.random(in: 1...50)
+        Expense.category = category
+        Expense.addTime = Date()
         
         do {
             try viewContext.save()
@@ -52,4 +54,5 @@ final class ModelData: ObservableObject {
             fatalError("could not add the expense to the CoreData stack \(error.localizedDescription)")
         }
     }
+    
 }
