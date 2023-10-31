@@ -23,6 +23,7 @@
 		A152CE9E2AE8D93D00870F2C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9D2AE8D93D00870F2C /* ModelData.swift */; };
 		A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */; };
 		A152CEA32AE8E23C00870F2C /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CEA22AE8E23C00870F2C /* PersistenceController.swift */; };
+		DBBEABA32AF084E0006CECFF /* Inexpensify.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DBBEABA22AF084E0006CECFF /* Inexpensify.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		A152CE9D2AE8D93D00870F2C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModifier.swift; sourceTree = "<group>"; };
 		A152CEA22AE8E23C00870F2C /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		DBBEABA22AF084E0006CECFF /* Inexpensify.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Inexpensify.mlmodel; path = ../../Inexpensify.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		A152CE832AE8C57800870F2C /* IOS_Advanced_Assignment_4 */ = {
 			isa = PBXGroup;
 			children = (
+				DBBEABA22AF084E0006CECFF /* Inexpensify.mlmodel */,
 				64647DFC2AEA97CA001B42F8 /* IOS-Advanced-Assignment-4-Info.plist */,
 				A152CEA12AE8E22B00870F2C /* CoreData */,
 				A152CE842AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift */,
@@ -217,6 +220,7 @@
 				A152CE872AE8C57800870F2C /* ContentView.swift in Sources */,
 				64647DFB2AEA9156001B42F8 /* ExchangeRatesResponse.swift in Sources */,
 				A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */,
+				DBBEABA32AF084E0006CECFF /* Inexpensify.mlmodel in Sources */,
 				64647DFE2AEAB34F001B42F8 /* MoneyExchangeView.swift in Sources */,
 				64647DF92AEA8760001B42F8 /* ExchangeRates.swift in Sources */,
 				A152CE9A2AE8D91400870F2C /* CurrencyExchangeView.swift in Sources */,
