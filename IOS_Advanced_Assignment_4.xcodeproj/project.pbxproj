@@ -23,6 +23,7 @@
 		A152CE9E2AE8D93D00870F2C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9D2AE8D93D00870F2C /* ModelData.swift */; };
 		A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */; };
 		A152CEA32AE8E23C00870F2C /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CEA22AE8E23C00870F2C /* PersistenceController.swift */; };
+		DB5F52D02AF0C499004AFB5C /* ClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F52CF2AF0C499004AFB5C /* ClassificationView.swift */; };
 		DBBEABA32AF084E0006CECFF /* Inexpensify.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = DBBEABA22AF084E0006CECFF /* Inexpensify.mlmodel */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		A152CE9D2AE8D93D00870F2C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModifier.swift; sourceTree = "<group>"; };
 		A152CEA22AE8E23C00870F2C /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		DB5F52CF2AF0C499004AFB5C /* ClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationView.swift; sourceTree = "<group>"; };
 		DBBEABA22AF084E0006CECFF /* Inexpensify.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = Inexpensify.mlmodel; path = ../../Inexpensify.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 				A152CE972AE8D90200870F2C /* HomeView.swift */,
 				A152CE992AE8D91400870F2C /* CurrencyExchangeView.swift */,
 				A152CE9B2AE8D92300870F2C /* SettingsView.swift */,
+				DB5F52CF2AF0C499004AFB5C /* ClassificationView.swift */,
 				64647DFD2AEAB34F001B42F8 /* MoneyExchangeView.swift */,
 				646EA2522AEE95FB00A448B8 /* SearchBarView.swift */,
 			);
@@ -222,6 +225,7 @@
 				A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */,
 				DBBEABA32AF084E0006CECFF /* Inexpensify.mlmodel in Sources */,
 				64647DFE2AEAB34F001B42F8 /* MoneyExchangeView.swift in Sources */,
+				DB5F52D02AF0C499004AFB5C /* ClassificationView.swift in Sources */,
 				64647DF92AEA8760001B42F8 /* ExchangeRates.swift in Sources */,
 				A152CE9A2AE8D91400870F2C /* CurrencyExchangeView.swift in Sources */,
 				A152CE852AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift in Sources */,
