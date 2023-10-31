@@ -16,6 +16,7 @@ struct HomeView: View {
 
     @FetchRequest(entity: Expense.entity(), sortDescriptors: []) var expenses: FetchedResults<Expense>
     
+    
     let model = Inexpensify()
     
     var body: some View {
@@ -36,13 +37,29 @@ struct HomeView: View {
                 Text("Recent Expenses")
                     .font(.title)
                     .fontWeight(.bold)
-
+                
+                /*Button(action: {
+                    
+                    modelData.deleteAllExpenses()
+                }) {
+                    Text("Delete")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }*/
+                
                 List(expenses, id: \.self) { expense in
-                    Text("ID: \(expense.id), Category: \(expense.category ?? "Unknown")")
-                }
+                            HStack {
+                                Text(expense.name ?? "") // Use default value in case name is nil
+                                Spacer()
+                                Text("\(expense.amount)")
+                            }
+                        }
                 
                 // Add Expense Button
-                NavigationLink(destination: Expenses()) {
+                NavigationLink(destination: addExpense()) {
                     Text("Add Expense")
                         .foregroundColor(.white)
                         .font(.headline)

@@ -32,10 +32,6 @@ struct ContentView: View {
                     Image(systemName: "lock.circle")
                     Text("Preferences")
                 }
-            Expenses()
-                .tabItem {
-                    Text("Expenses")
-                }
         }
         .modifier(ThemeModifier(selectedTheme: modelData.selectedTheme))
     }
