@@ -11,7 +11,7 @@ struct Expenses: View {
     
     @EnvironmentObject var modelData: ModelData
        
-       @FetchRequest(entity: Expense.entity(), sortDescriptors: []) var expenses: FetchedResults<Expense>
+    @FetchRequest(entity: Expense.entity(), sortDescriptors: []) var expenses: FetchedResults<Expense>
     
     var body: some View {
         

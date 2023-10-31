@@ -13,40 +13,47 @@ struct HomeView: View {
     @State private var category: String = ""
     
     @EnvironmentObject var modelData: ModelData
-    
-    @Environment(\.managedObjectContext) private var viewContext
 
-    
+    @FetchRequest(entity: Expense.entity(), sortDescriptors: []) var expenses: FetchedResults<Expense>
     
     let model = Inexpensify()
     
     var body: some View {
         
-        VStack {
-            Text("Testing the Classifier App")
-                .font(.largeTitle)
-                .padding()
+        NavigationView {
+            
+            VStack(alignment: .leading, spacing: 20) {
+                // Budget Overview Section
+                Text("Budget Overview")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                        
+                // Display budget details here
+                
+                // We can display the three boxes of information here
+                        
+                // Recent Expenses Section
+                Text("Recent Expenses")
+                    .font(.title)
+                    .fontWeight(.bold)
 
-            TextField("Enter a word", text: $userInput)
-                .textFieldStyle(RoundedBorderTextFieldStyle())
-                .padding()
-
-            Button("Classify") {
-                classifyText()
-                modelData.addExpense(category: category)
+                List(expenses, id: \.self) { expense in
+                    Text("ID: \(expense.id), Category: \(expense.category ?? "Unknown")")
+                }
+                
+                // Add Expense Button
+                NavigationLink(destination: Expenses()) {
+                    Text("Add Expense")
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(10)
+                }
+                        
+                Spacer()
             }
-            .font(.headline)
             .padding()
-
-            Text("Category: \(category)")
-                .font(.headline)
-                .padding()
-            
-            ForEach(Array(modelData.Expenses), id: \.self) { expense in
-                Text(expense.category!)
-            }
-            
-            
         }
     }
 
