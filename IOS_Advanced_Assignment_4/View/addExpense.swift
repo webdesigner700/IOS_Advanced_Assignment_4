@@ -33,7 +33,7 @@ struct addExpense: View {
                     
                     classifyText()
                     
-                    let transaction = Transaction(name: expenseName, amount: amount, category: category)
+                    let transaction = Transaction(name: expenseName, amount: amount, category: category, timestamp: Date())
                     
                     modelData.addExpense(transaction: transaction)
                     
@@ -71,9 +71,9 @@ struct addExpense: View {
     }
 }
 
-struct addExpense_Previews: PreviewProvider {
-    static var previews: some View {
-        addExpense()
-            .environmentObject(ModelData())
-    }
-}
+//struct addExpense_Previews: PreviewProvider {
+//    static var previews: some View {
+//        addExpense()
+//            .environmentObject(ModelData())
+//    }
+//}
