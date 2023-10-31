@@ -6,10 +6,15 @@
 //
 
 import Foundation
+import CoreData
 
 final class ModelData: ObservableObject {
     
     @Published var selectedTheme: AppTheme = .light
+    
+    private var viewContext: NSManagedObjectContext = PersistenceController.shared.container.viewContext
+    
+    @Published var Expenses = Set<Expense>()
     
     enum AppTheme: String, CaseIterable {
         case light = "Light"
@@ -28,6 +33,23 @@ final class ModelData: ObservableObject {
         else {
             // If no theme was previously saved in UserDefaults, or if the savedTheme does not match any AppTheme enum values, the theme is set to the default light theme.
             self.selectedTheme = .light
+        }
+    }
+    
+    func addExpense(expense: Expense) {
+        
+        let Expense = Expense(context: viewContext)
+        
+        Expense.category = Expense.category
+        
+        do {
+            try viewContext.save()
+            
+            Expenses.insert(Expense)
+        }
+        catch {
+            
+            fatalError("could not add the expense to the CoreData stack \(error.localizedDescription)")
         }
     }
 }
