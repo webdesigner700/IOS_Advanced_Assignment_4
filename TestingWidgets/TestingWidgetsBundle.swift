@@ -7,6 +7,7 @@
 
 import WidgetKit
 import SwiftUI
+import CoreData
 
 @main
 struct TestingWidgetsBundle: WidgetBundle {

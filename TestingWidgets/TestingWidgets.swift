@@ -127,19 +127,3 @@ struct ExpensesWidget: Widget {
         .description("This is an example widget.")
     }
 }
-
-
-
-//struct TestingWidgets_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TestingWidgetsEntryView(entry: SimpleEntry(date: Date()))
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
-//    }
-//}
-
-//struct ExpenseWidgets_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExpensesWidgetEntryView(entry: SimpleEntry(date: Date(), expensesData: []))
-//            .previewContext(WidgetPreviewContext(family: .systemSmall))
-//    }
-//}
