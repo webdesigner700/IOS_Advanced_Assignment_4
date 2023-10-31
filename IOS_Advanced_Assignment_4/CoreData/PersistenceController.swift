@@ -24,7 +24,7 @@ struct PersistenceController {
         
         for _ in 0..<10 {
             // Create 10 new Itinerary Activity objects
-            //let newItem = Expense(context: viewContext)
+            let newItem = Expense(context: viewContext)
         }
         
         do {

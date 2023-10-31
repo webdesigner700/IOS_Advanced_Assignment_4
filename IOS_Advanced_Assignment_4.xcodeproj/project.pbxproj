@@ -24,6 +24,7 @@
 		A152CE9E2AE8D93D00870F2C /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9D2AE8D93D00870F2C /* ModelData.swift */; };
 		A152CEA02AE8D94800870F2C /* ThemeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */; };
 		A152CEA32AE8E23C00870F2C /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A152CEA22AE8E23C00870F2C /* PersistenceController.swift */; };
+		A16C95372AF0D1E500C83F30 /* Expenses.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A16C95352AF0D1E400C83F30 /* Expenses.xcdatamodeld */; };
 		DB5F52D02AF0C499004AFB5C /* ClassificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB5F52CF2AF0C499004AFB5C /* ClassificationView.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		A152CE9D2AE8D93D00870F2C /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		A152CE9F2AE8D94800870F2C /* ThemeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeModifier.swift; sourceTree = "<group>"; };
 		A152CEA22AE8E23C00870F2C /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		A16C95362AF0D1E400C83F30 /* Expenses.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Expenses.xcdatamodel; sourceTree = "<group>"; };
 		DB5F52CF2AF0C499004AFB5C /* ClassificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassificationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				A152CEA22AE8E23C00870F2C /* PersistenceController.swift */,
+				A16C95352AF0D1E400C83F30 /* Expenses.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				64647DFE2AEAB34F001B42F8 /* MoneyExchangeView.swift in Sources */,
 				DB5F52D02AF0C499004AFB5C /* ClassificationView.swift in Sources */,
 				64647DF92AEA8760001B42F8 /* ExchangeRates.swift in Sources */,
+				A16C95372AF0D1E500C83F30 /* Expenses.xcdatamodeld in Sources */,
 				A152CE9A2AE8D91400870F2C /* CurrencyExchangeView.swift in Sources */,
 				A152CE852AE8C57800870F2C /* IOS_Advanced_Assignment_4App.swift in Sources */,
 				64F9EC6A2AF0C7360090FC30 /* Inexpensify.mlmodel in Sources */,
@@ -452,6 +456,19 @@
 			productName = FlagKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		A16C95352AF0D1E400C83F30 /* Expenses.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A16C95362AF0D1E400C83F30 /* Expenses.xcdatamodel */,
+			);
+			currentVersion = A16C95362AF0D1E400C83F30 /* Expenses.xcdatamodel */;
+			path = Expenses.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A152CE792AE8C57800870F2C /* Project object */;
 }

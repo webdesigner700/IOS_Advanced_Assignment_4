@@ -16,6 +16,7 @@ struct IOS_Advanced_Assignment_4App: App {
         WindowGroup {
             ContentView()
                 .environmentObject(ModelData())
+                .environment(\.managedObjectContext, PersistenceController.shared.container.viewContext)
         }
     }
 }
