@@ -31,6 +31,8 @@ struct addExpense: View {
                 
                 if let amount = Int(expenseAmount) {
                     
+                    classifyText()
+                    
                     let transaction = Transaction(name: expenseName, amount: amount, category: category)
                     
                     modelData.addExpense(transaction: transaction)

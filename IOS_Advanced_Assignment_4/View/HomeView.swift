@@ -44,6 +44,9 @@ struct HomeView: View {
                         Text(expense.name ?? "") // Use default value in case name is nil
                         Spacer()
                         Text("\(expense.amount)")
+                        Spacer()
+                        Text("\(expense.category ?? "Generic")")
+                        
                         
                         Button(action: {
                             
@@ -70,16 +73,6 @@ struct HomeView: View {
                 Spacer()
             }
             .padding()
-        }
-    }
-
-    func classifyText() {
-        do {
-            let prediction = try model.prediction(text: userInput)
-            category = prediction.label
-        } catch {
-            print("Error classifying text: \(error)")
-            category = "Error"
         }
     }
 }
