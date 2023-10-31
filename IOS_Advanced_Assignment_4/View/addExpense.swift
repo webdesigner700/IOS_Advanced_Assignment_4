@@ -15,6 +15,9 @@ struct addExpense: View {
     @State private var expenseAmount: String = ""
     @State private var category: String = ""
     
+    @State private var showAlert: Bool = false
+    @State private var alertMessage: String = ""
+    
     let model = Inexpensify()
     
     var body: some View {
@@ -32,6 +35,13 @@ struct addExpense: View {
                     
                     modelData.addExpense(transaction: transaction)
                     
+                    alertMessage = "Expense added successfully!"
+                    showAlert = true
+                }
+                else {
+                    
+                    alertMessage = "Please enter a valid amount."
+                    showAlert = true
                 }
             }) {
                 Text("Add Expense")
@@ -42,6 +52,9 @@ struct addExpense: View {
                     .cornerRadius(10)
             }
             
+        }
+        .alert(isPresented: $showAlert) {
+            Alert(title: Text("Info"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
         }
     }
     
