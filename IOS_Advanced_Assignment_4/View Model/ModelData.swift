@@ -37,22 +37,22 @@ final class ModelData: ObservableObject {
     }
     
     func addExpense(transaction: Transaction) {
-        
+
         let Expense = Expense(context: viewContext)
-        
-        Expense.id = Int32(transaction.id)
+
+        Expense.id = UUID()
         Expense.name = transaction.name
         Expense.amount = Int32(transaction.amount)
         Expense.category = transaction.category
         Expense.timestamp = transaction.timestamp
-        
+
         do {
             try viewContext.save()
-            
+
             Expenses.insert(Expense)
         }
         catch {
-            
+
             fatalError("could not add the expense to the CoreData stack \(error.localizedDescription)")
         }
     }

@@ -50,9 +50,22 @@ struct HomeView: View {
                         
                         Button(action: {
                             
-                            let transaction = Transaction(id: expense.id, name: expense.name!, amount: expense.amount, category: expense.category!, addTime: expense.addTime!)
-                            // Here you call your delete function
-                            modelData.deleteExpense(transaction: transaction)
+                            if let id = expense.id {
+                                let transaction = Transaction(
+                                    id: id,
+                                    name: expense.name!,
+                                    amount: Int(expense.amount),
+                                    category: expense.category!,
+                                    timestamp: expense.timestamp!
+                                )
+                                // Here you call your delete function
+                                modelData.deleteExpense(transaction: transaction)
+                            } else {
+                                // Handle the case where `expense.id` is nil
+                            }
+
+//                            // Here you call your delete function
+//                            modelData.deleteExpense(transaction: transaction)
                         }) {
                             Image(systemName: "trash")
                                 .foregroundColor(.red)
@@ -77,9 +90,9 @@ struct HomeView: View {
     }
 }
 
-struct HomeView_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeView()
-            .environmentObject(ModelData())
-    }
-}
+//struct HomeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        HomeView()
+//            .environmentObject(ModelData())
+//    }
+//}

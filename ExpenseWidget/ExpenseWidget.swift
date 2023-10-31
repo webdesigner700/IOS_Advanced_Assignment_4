@@ -9,7 +9,49 @@ import WidgetKit
 import SwiftUI
 import CoreData
 
-struct Provider: TimelineProvider {    
+struct Provider: TimelineProvider {
+    
+    func placeholder(in context: Context) -> ExpenseWidgetEntry {
+        let container = NSPersistentContainer(name: "Expense")
+        container.loadPersistentStores { description, error in
+            if let error = error {
+                fatalError("Error: \(error)")
+            }
+        }
+
+        // Insert sample data into Core Data
+        let context = container.viewContext
+
+        let sampleExpense1 = Expense(context: context)
+        sampleExpense1.name = "Zara"
+        sampleExpense1.amount = 10
+        sampleExpense1.timestamp = Date()
+
+        let sampleExpense2 = Expense(context: context)
+        sampleExpense2.name = "Pizza Hut"
+        sampleExpense2.amount = 20
+        sampleExpense2.timestamp = Date()
+
+        // Save the changes to Core Data
+        do {
+            try context.save()
+        } catch {
+            fatalError("Error saving sample data: \(error)")
+        }
+
+        // Fetch the sample data from Core Data
+        let placeholderData = fetchDataFromCoreData()
+
+        // Create a placeholder entry with the current date and the sample data
+        let placeholderEntry = ExpenseWidgetEntry(date: Date(), data: placeholderData)
+
+        return placeholderEntry
+    }
+
+    
+    
+    
+    
     let container: NSPersistentContainer
 
     init() {
@@ -57,7 +99,27 @@ struct ExpenseWidgetEntry: TimelineEntry {
     let data: [Expense]
 }
 
-@main
+struct ExpenseWidgetView: View {
+    let data: [Expense]
+
+    var body: some View {
+        VStack {
+            Text("Expense Widget")
+                .font(.title)
+
+            List(data, id: \.self) { expense in
+                HStack {
+                    Text(expense.name ?? "Unknown")
+                    Spacer()
+                    Text("$\(expense.amount)")
+                }
+            }
+        }
+        .padding()
+    }
+}
+
+//@main
 struct ExpenseWidget: Widget {
     let kind: String = "ExpenseWidget"
 
