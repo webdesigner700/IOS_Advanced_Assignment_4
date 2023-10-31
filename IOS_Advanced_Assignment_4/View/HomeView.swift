@@ -8,8 +8,41 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State private var userInput: String = ""
+    @State private var category: String = ""
+
+    let model = Inexpensify()
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Text("Testing the Classifier App")
+                .font(.largeTitle)
+                .padding()
+
+            TextField("Enter a word", text: $userInput)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .padding()
+
+            Button("Classify") {
+                classifyText()
+            }
+            .font(.headline)
+            .padding()
+
+            Text("Category: \(category)")
+                .font(.headline)
+                .padding()
+        }
+    }
+
+    func classifyText() {
+        do {
+            let prediction = try model.prediction(text: userInput)
+            category = prediction.label
+        } catch {
+            print("Error classifying text: \(error)")
+            category = "Error"
+        }
     }
 }
 
