@@ -7,30 +7,27 @@
 
 import Foundation
 
-
 struct Transaction: Codable, Hashable, Identifiable {
     
-    var id: Int
+    var id: UUID // Use UUID for id
     var name: String
     var amount: Int
-    var addTime: Date
+    var timestamp: Date
     var category: String
     
-    init(name: String, amount: Int, category: String) {
-        
-        self.id = Int.random(in: 1...50)
+//    init(name: String, amount: Int, category: String) {
+//        self.id = UUID() // Generate a new UUID
+//        self.name = name
+//        self.amount = amount
+//        self.timestamp = Date()
+//        self.category = category
+//    }
+    
+    init(id: UUID, name: String, amount: Int, category: String, timestamp: Date) {
+        self.id = id
         self.name = name
         self.amount = amount
-        self.addTime = Date()
-        self.category = category
-    }
-    
-    init(id: Int32,name: String, amount: Int32, category: String, addTime: Date) {
-        
-        self.id = Int(id)
-        self.name = name
-        self.amount = Int(amount)
-        self.addTime = Date()
+        self.timestamp = timestamp
         self.category = category
     }
 }

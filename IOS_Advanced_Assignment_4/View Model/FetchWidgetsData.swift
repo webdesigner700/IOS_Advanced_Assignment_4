@@ -7,35 +7,120 @@
 
 import Foundation
 import CoreData
+import WidgetKit
 
-// Create a function to fetch expenses grouped by category
-func fetchExpensesGroupedByCategory() -> [String: [(name: String, amount: Int)]] {
-    let context = PersistenceController.shared.container.viewContext
+class WidgetDataProvider: ObservableObject {
+    private var container: NSPersistentContainer
+    @Published var expensesData: [WidgetsData] = []
 
-    let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
-    
-    // Sort expenses by creationDate in descending order
-    let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
-    fetchRequest.sortDescriptors = [sortDescriptor]
+    init(container: NSPersistentContainer) {
+        self.container = container
+        fetchExpensesGroupedByCategory()
+    }
 
-    do {
-        let expenses = try context.fetch(fetchRequest)
+    func fetchExpensesGroupedByCategory() {
+        let context = container.viewContext
 
-        // Use Swift to group expenses by category
-        let groupedExpenses = Dictionary(grouping: expenses, by: { $0.category })
+        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+        
+        // Sort expenses by timestamp in descending order
+        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+        fetchRequest.sortDescriptors = [sortDescriptor]
 
-        // Sort and format data as needed (e.g., calculate total amounts)
-        var formattedData: [String: [(name: String, amount: Int)]] = [:]
-        for (category, expenses) in groupedExpenses {
-            let topThreeLatestExpenses = Array(expenses.prefix(3)) // Select the top three latest expenses
-            let totalAmount = topThreeLatestExpenses.reduce(0) { $0 + Int($1.amount) }
+        do {
+            let expenses = try context.fetch(fetchRequest)
 
-            formattedData[category ?? "Unknown"] = topThreeLatestExpenses.map { ($0.name ?? "Unknown", Int($0.amount)) }
+            // Use Swift to group expenses by category
+            let groupedExpenses = Dictionary(grouping: expenses, by: { $0.category ?? "Unknown" })
+
+            // Format data into WidgetExpenseData
+            var formattedData: [WidgetsData] = [] // Update this line
+
+            for (category, expenses) in groupedExpenses {
+                let topThreeLatestExpenses = expenses.prefix(3) // Select the top three latest expenses
+                let categoryExpenses = topThreeLatestExpenses.map {
+                    (name: $0.name ?? "Unknown", amount: Int($0.amount))
+                }
+
+                let widgetExpenseData = WidgetsData(category: category, topThreeExpenses: categoryExpenses)
+                formattedData.append(widgetExpenseData)
+            }
+
+            expensesData = formattedData
+        } catch {
+            print("Error fetching expenses: \(error)")
         }
-
-        return formattedData
-    } catch {
-        print("Error fetching expenses: \(error)")
-        return [:]
     }
 }
+
+
+
+
+
+//import WidgetKit
+//import CoreData
+//
+//class WidgetDataProvider: ObservableObject {
+//    private var container: NSPersistentContainer
+//    @Published var expensesData: [WidgetsData] = []
+//
+//    init(container: NSPersistentContainer) {
+//        self.container = container
+//    }
+//
+//    func fetchExpensesGroupedByCategory() {
+//        let context = container.viewContext
+//
+//        let fetchRequest: NSFetchRequest<Expense> = Expense.fetchRequest()
+//
+//        // Sort expenses by timestamp in descending order
+//        let sortDescriptor = NSSortDescriptor(key: "timestamp", ascending: false)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
+//
+//        do {
+//            let expenses = try context.fetch(fetchRequest)
+//
+//            // Use Swift to group expenses by category
+//            let groupedExpenses = Dictionary(grouping: expenses, by: { $0.category ?? "Unknown" })
+//
+//            // Format data into WidgetExpenseData
+//            var formattedData: [WidgetsData] = []
+//
+//            for (category, expenses) in groupedExpenses {
+//                let topThreeLatestExpenses = expenses.prefix(3) // Select the top three latest expenses
+//                let categoryExpenses = topThreeLatestExpenses.map {
+//                    (name: $0.name ?? "Unknown", amount: Int($0.amount))
+//                }
+//
+//                let widgetExpenseData = WidgetsData(category: category, topThreeExpenses: categoryExpenses)
+//                formattedData.append(widgetExpenseData)
+//            }
+//
+//            expensesData = formattedData
+//        } catch {
+//            print("Error fetching expenses: \(error)")
+//        }
+//    }
+//}
+//
+//extension WidgetDataProvider: TimelineProvider {
+//    func placeholder(in context: Context) -> WidgetsData {
+//        // Return a placeholder data for your widget here
+//        return WidgetsData(category: "Placeholder", topThreeExpenses: [("Expense 1", 10), ("Expense 2", 20), ("Expense 3", 30)])
+//    }
+//
+//    func getSnapshot(in context: Context, completion: @escaping (WidgetsData) -> ()) {
+//        // Fetch data for your widget snapshot and call the completion handler
+//        fetchExpensesGroupedByCategory()
+//        completion(expensesData.first ?? placeholder(in: context))
+//    }
+//
+//    func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetsData>) -> ()) {
+//        // Fetch data for your widget timeline entries and create a timeline
+//        fetchExpensesGroupedByCategory()
+//
+//        let currentDate = Date()
+//        let timeline = Timeline(entries: [expensesData.first ?? placeholder(in: context)], policy: .atEnd)
+//        completion(timeline)
+//    }
+//}

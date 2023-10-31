@@ -44,7 +44,7 @@ final class ModelData: ObservableObject {
         Expense.name = transaction.name
         Expense.amount = Int32(transaction.amount)
         Expense.category = transaction.category
-        Expense.addTime = transaction.addTime
+        Expense.timestamp = transaction.timestamp
         
         do {
             try viewContext.save()
@@ -62,7 +62,7 @@ final class ModelData: ObservableObject {
         let fetchRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest(entityName: "Expense")
 
         // Assuming "id" is the unique attribute for Transaction in CoreData
-        fetchRequest.predicate = NSPredicate(format: "id == %d", transaction.id)
+        fetchRequest.predicate = NSPredicate(format: "id == %d", transaction.id as CVarArg)
 
         do {
             // Fetch the Transaction objects from CoreData matching the criteria

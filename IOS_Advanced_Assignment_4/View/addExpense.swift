@@ -11,9 +11,11 @@ struct addExpense: View {
     
     @EnvironmentObject var modelData: ModelData
     
+    @State private var id: UUID = UUID() // Initialize with a new random UUID
     @State private var expenseName: String = ""
     @State private var expenseAmount: String = ""
     @State private var category: String = ""
+    @State private var timestamp: Date = Date()
     
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
@@ -33,7 +35,8 @@ struct addExpense: View {
                     
                     classifyText()
                     
-                    let transaction = Transaction(name: expenseName, amount: amount, category: category, timestamp: Date())
+//                    let id = UUID()
+                    let transaction = Transaction(id: UUID(), name: expenseName, amount: amount, category: category, timestamp: Date())
                     
                     modelData.addExpense(transaction: transaction)
                     

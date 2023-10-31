@@ -14,29 +14,29 @@ struct PersistenceController {
     // Singleton instance to allow global access to this controller
     static let shared = PersistenceController()
     
-    // This is a preview instance using in-memory storage
-    static var preview: PersistenceController = {
-        
-        let result = PersistenceController() // Create an instance of the Persistence controller with in-memory storage
-        // The "inMemory" parameter indicates that the Core Data sTACK SHOULD USE AN IN-MEMORY STORE, MEANING THE DATA IS NOT persisted on disk but kept in memory
-        
-        let viewContext = result.container.viewContext
-        
-        for _ in 0..<10 {
-            // Create 10 new Itinerary Activity objects
-            let newItem = Expense(context: viewContext)
-        }
-        
-        do {
-            try viewContext.save()
-        }
-        catch {
-            
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-        return result // Return the instance for the preview
-    }() // The declared static property named "preview" uses a closure to provide a custom initializer for the "preview" property
+//    // This is a preview instance using in-memory storage
+//    static var preview: PersistenceController = {
+//
+//        let result = PersistenceController() // Create an instance of the Persistence controller with in-memory storage
+//        // The "inMemory" parameter indicates that the Core Data sTACK SHOULD USE AN IN-MEMORY STORE, MEANING THE DATA IS NOT persisted on disk but kept in memory
+//
+//        let viewContext = result.container.viewContext
+//
+//        for _ in 0..<10 {
+//            // Create 10 new Itinerary Activity objects
+//            let newItem = Expense(context: viewContext)
+//        }
+//
+//        do {
+//            try viewContext.save()
+//        }
+//        catch {
+//
+//            let nsError = error as NSError
+//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//        }
+//        return result // Return the instance for the preview
+//    }() // The declared static property named "preview" uses a closure to provide a custom initializer for the "preview" property
     
     let container: NSPersistentContainer // this is the Main persistent container
     
