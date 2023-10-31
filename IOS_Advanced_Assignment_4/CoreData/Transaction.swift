@@ -24,4 +24,13 @@ struct Transaction: Codable, Hashable, Identifiable {
         self.addTime = Date()
         self.category = category
     }
+    
+    init(id: Int32,name: String, amount: Int32, category: String, addTime: Date) {
+        
+        self.id = Int(id)
+        self.name = name
+        self.amount = Int(amount)
+        self.addTime = Date()
+        self.category = category
+    }
 }

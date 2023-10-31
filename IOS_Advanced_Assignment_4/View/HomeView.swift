@@ -38,25 +38,24 @@ struct HomeView: View {
                     .font(.title)
                     .fontWeight(.bold)
                 
-                /*Button(action: {
-                    
-                    modelData.deleteAllExpenses()
-                }) {
-                    Text("Delete")
-                        .foregroundColor(.white)
-                        .font(.headline)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }*/
-                
                 List(expenses, id: \.self) { expense in
-                            HStack {
-                                Text(expense.name ?? "") // Use default value in case name is nil
-                                Spacer()
-                                Text("\(expense.amount)")
-                            }
+                    
+                    HStack {
+                        Text(expense.name ?? "") // Use default value in case name is nil
+                        Spacer()
+                        Text("\(expense.amount)")
+                        
+                        Button(action: {
+                            
+                            let transaction = Transaction(id: expense.id, name: expense.name!, amount: expense.amount, category: expense.category!, addTime: expense.addTime!)
+                            // Here you call your delete function
+                            modelData.deleteExpense(transaction: transaction)
+                        }) {
+                            Image(systemName: "trash")
+                                .foregroundColor(.red)
                         }
+                    }
+                }
                 
                 // Add Expense Button
                 NavigationLink(destination: addExpense()) {
