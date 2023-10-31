@@ -120,18 +120,18 @@ struct CurrencyExchangeView: View {
                     }
                 }
             }
-            .edgesIgnoringSafeArea(.all)
+//            .edgesIgnoringSafeArea(.all)
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarItems(leading:
-                                    HStack {
-                Spacer().frame(width: 7)
-                
-                Text("Currency Exchange")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding(.top, 60)
-                    .padding(.bottom, 60)
-            }
+                HStack {
+                    Spacer().frame(width: 7)
+                    
+                    Text("Currency Exchange")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .padding(.top, 60)
+                        .padding(.bottom, 60)
+                }
             )
             .onAppear {
                 print("View appeared, calling fetchExchangeRates()")
